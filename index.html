@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programa de Apoyo - ONG USA Ladies Helps You</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-animation"></div>
+
+  <main class="form-wrapper">
+    <h1>PROGRAMA DE APOYO</h1>
+    <h2 class="subtitle">ONG USA Ladies Helps You</h2>
+
+    <p class="welcome-text">
+      Bienvenido al Programa de Apoyo Social de <strong>USA Helps You</strong>, una iniciativa solidaria
+      que conecta a personas y familias con oportunidades de ayuda responsable, acompañamiento humano
+      y orientación práctica.
+    </p>
+
+    <p class="welcome-text">
+      Nuestro objetivo es brindar <strong>apoyos concretos y transparentes</strong> a participantes
+      previamente verificados, promoviendo el respeto, la seguridad digital y la confianza mutua.
+    </p>
+
+    <ul class="welcome-list">
+      <li>No solicitamos pagos, depósitos ni claves bancarias para participar.</li>
+      <li>Tu información se usa únicamente para validar identidad y contacto.</li>
+      <li>Priorizamos situaciones reales de necesidad y buena conducta digital.</li>
+      <li>Cada caso es evaluado por un equipo humano, no por sorteos falsos.</li>
+    </ul>
+
+    <div class="conditions-box">
+      <p><strong>Antes de continuar, confirma que comprendes:</strong></p>
+      <p>
+        ✔ La participación es <strong>gratuita y voluntaria</strong>.<br>
+        ✔ El apoyo está sujeto a verificación de datos reales y disponibilidad.<br>
+        ✔ Datos falsos pueden anular tu solicitud.<br>
+        ✔ Autorizas que te contacten con los medios que registres.<br>
+        ✔ Tus datos no serán vendidos ni usados con fines comerciales externos.<br>
+      </p>
+    </div>
+
+    <div class="input-group check-group">
+      <label class="check-label">
+        <input type="checkbox" id="aceptoCondiciones" />
+        <span>
+          He leído y estoy de acuerdo con las condiciones del Programa de Apoyo de USA Helps You.
+        </span>
+      </label>
+    </div>
+
+    <button id="btnInfoONG" class="btn-mostrar" disabled>
+      Estoy de acuerdo, quiero conocer más sobre la ONG
+    </button>
+
+    <button id="btnIrFormulario" class="btn-enviar" disabled>
+      REGÍSTRATE AHORA
+    </button>
+
+    <p class="nota-final">
+      Puedes conocer más sobre nuestra labor o avanzar directamente al formulario oficial.
+    </p>
+  </main>
+
+  <script>
+    const chk = document.getElementById('aceptoCondiciones');
+    const btnForm = document.getElementById('btnIrFormulario');
+    const btnInfo = document.getElementById('btnInfoONG');
+
+    chk.addEventListener('change', () => {
+      const on = chk.checked;
+      btnForm.disabled = !on;
+      btnInfo.disabled = !on;
+    });
+
+    btnForm.addEventListener('click', () => {
+      if (!btnForm.disabled) window.location.href = 'formulario.html';
+    });
+
+    btnInfo.addEventListener('click', () => {
+      if (!btnInfo.disabled) window.location.href = 'ong.html';
+    });
+  </script>
+</body>
+</html> 

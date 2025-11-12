@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Registro - USA Helps You</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+
+    <main class="form-wrapper">
+        <h1>LLENA TUS DATOS</h1>
+        <h2 class="subtitle">Formulario oficial de registro - USA Ladies Helps You</h2>
+
+        <!-- Enlace para conocer más sobre la ONG -->
+        <a href="nosotros.html" class="btn-mostrar btn-small">
+            ℹ️ Conoce más sobre la ONG
+        </a>
+        
+        <form id="registroForm">
+            <!-- País -->
+            <div class="input-group">
+                <label>País (América Latina)</label>
+                <input type="hidden" id="pais" name="pais" />
+                <div class="acordeon" data-target="listaPaises">
+                    <span id="paisSeleccionado">Selecciona tu país</span>
+                    <span class="flecha">▼</span>
+                </div>
+                <div id="listaPaises" class="acordeon-lista oculto">
+                    <div data-valor="Argentina">Argentina</div>
+                    <div data-valor="Bolivia">Bolivia</div>
+                    <div data-valor="Brasil">Brasil</div>
+                    <div data-valor="Chile">Chile</div>
+                    <div data-valor="Colombia">Colombia</div>
+                    <div data-valor="Costa Rica">Costa Rica</div>
+                    <div data-valor="Cuba">Cuba</div>
+                    <div data-valor="Ecuador">Ecuador</div>
+                    <div data-valor="El Salvador">El Salvador</div>
+                    <div data-valor="Guatemala">Guatemala</div>
+                    <div data-valor="Honduras">Honduras</div>
+                    <div data-valor="México">México</div>
+                    <div data-valor="Nicaragua">Nicaragua</div>
+                    <div data-valor="Panamá">Panamá</div>
+                    <div data-valor="Paraguay">Paraguay</div>
+                    <div data-valor="Perú">Perú</div>
+                    <div data-valor="Puerto Rico">Puerto Rico</div>
+                    <div data-valor="República Dominicana">República Dominicana</div>
+                    <div data-valor="Uruguay">Uruguay</div>
+                    <div data-valor="Venezuela">Venezuela</div>
+                </div>
+            </div>
+
+            <!-- Ciudad -->
+            <div class="input-group">
+                <label>Ciudad principal</label>
+                <input type="hidden" id="ciudad" name="ciudad" />
+                <div class="acordeon" data-target="listaCiudades">
+                    <span id="ciudadSeleccionada">Selecciona tu ciudad</span>
+                    <span class="flecha">▼</span>
+                </div>
+                <div id="listaCiudades" class="acordeon-lista oculto"></div>
+            </div>
+
+            <!-- Nombre y apellidos -->
+            <div class="input-group">
+                <label>Nombre completo</label>
+                <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="input-group">
+                <label>Apellido completo</label>
+                <input type="text" id="apellidoCompleto" name="apellidoCompleto" placeholder="Tus apellidos" required />
+            </div>
+
+            <!-- Fecha y edad -->
+            <div class="input-group">
+                <label>Fecha de nacimiento</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+            </div>
+
+            <div class="input-group">
+                <label>Edad (se calcula automáticamente)</label>
+                <input type="number" id="edad" name="edad" readonly />
+            </div>
+
+            <!-- Tipo documento -->
+            <div class="input-group">
+                <label>Tipo de documento</label>
+                <input type="hidden" id="tipoDocumento" name="tipoDocumento" />
+                <div class="acordeon" data-target="listaDocs">
+                    <span id="docSeleccionado">Selecciona tipo de documento</span>
+                    <span class="flecha">▼</span>
+                </div>
+                <div id="listaDocs" class="acordeon-lista oculto">
+                    <div data-valor="DNI">DNI</div>
+                    <div data-valor="Cédula de Identidad">Cédula de Identidad</div>
+                    <div data-valor="Pasaporte">Pasaporte</div>
+                    <div data-valor="Visa">Visa</div>
+                    <div data-valor="Otro">Otro</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Número de documento</label>
+                <input type="text" id="numeroDocumento" name="numeroDocumento" placeholder="Número de tu documento"
+                    required />
+            </div>
+
+            <!-- Dirección -->
+            <div class="input-group">
+                <label>Dirección completa</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Calle, número, zona, referencia"
+                    required />
+            </div>
+
+            <!-- Teléfono -->
+            <div class="input-group">
+                <label>Teléfono / WhatsApp</label>
+                <div class="phone-wrapper">
+                    <span id="phoneFlag" class="phone-flag">🌐</span>
+                    <span id="phoneCode" class="phone-code">+--</span>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Solo números" required />
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label>Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+            </div>
+
+            <!-- Comentario -->
+            <div class="input-group">
+                <label>Comentario adicional - Describe tu solicitud (opcional)</label>
+                <textarea id="mensaje" name="mensaje" rows="3"
+                    placeholder="Cuéntanos brevemente tu situación."></textarea>
+            </div>
+
+            <!-- No eres robot -->
+            <div class="input-group">
+                <label>No eres un robot</label>
+                <p class="captcha-text">
+                    Ingresa el siguiente código para confirmar que eres una persona real.
+                </p>
+                <div class="codigo-verificacion-wrapper">
+                    <span id="codigoGenerado" class="codigo-verificacion"></span>
+                    <button type="button" id="btnRefrescarCodigo" class="btn-mini">Nuevo código</button>
+                </div>
+                <input type="text" id="codigoIngresado" placeholder="Escribe el código aquí" />
+                <div id="errorCodigo" class="mensaje-error oculto">
+                    Código incorrecto. Inténtalo nuevamente.
+                </div>
+            </div>
+
+            <!-- Botón enviar -->
+            <button type="submit" class="btn-enviar">Enviar datos</button>
+
+            <!-- Ver ruta de mi solicitud -->
+            <button type="button" id="btnRuta" class="btn-mostrar">
+                Ver la ruta de mi solicitud
+            </button>
+
+            <p id="mensajeExito" class="mensaje-exito oculto"></p>
+        </form>
+    </main>
+
+    <!-- Sección ruta -->
+    <section id="rutaSection" class="ruta-solicitud oculto">
+        <h2>Ruta de tu solicitud</h2>
+        <div id="estadoSolicitud" class="estado-solicitud estado-ninguno">
+            <span id="estadoTexto">
+                Aún no hay información disponible sobre tu solicitud en este dispositivo.
+            </span>
+        </div>
+        <button id="btnCerrarRuta" class="btn-ocultar">Cerrar</button>
+    </section>
+
+
+    <!-- Modal confirmación -->
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-contenido">
+            <h2>¿Estás seguro de tus datos?</h2>
+            <p>
+                Verifica que toda la información sea correcta. Tus datos serán utilizados solo para validar tu
+                identidad.
+            </p>
+            <div class="modal-botones">
+                <button id="btnNo" class="btn-secundario">No, corregir</button>
+                <button id="btnSi" class="btn-primario">Sí, enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <p>
+        © 2025 <strong>Fundación USA Ladies Helps You</strong> — Todos los derechos reservados.<br>
+        Estados Unidos de Norteamérica 🇺🇸 | Programa de Apoyo Internacional 🤝
+    </p>
+</footer>
+
+</html>
